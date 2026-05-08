@@ -1,0 +1,9 @@
+# NixOS sensitive files
+result
+result-*
+.#*
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
