@@ -7,7 +7,7 @@
 {
   imports =
     [
-      <home-manager/nixos>
+      #<home-manager/nixos> # home-manager is now provided by the flake, no longer a channel import
       ./hardware-configuration.nix
       ./host.nix
       ./packages.nix

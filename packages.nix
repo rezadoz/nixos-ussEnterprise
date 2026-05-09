@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     # applications
-    btop
+    btop-cuda
     catnip
     feh
     fish
@@ -46,6 +46,16 @@
     wavemon
     zip
 
+    unstable.kdePackages.konsole
+    unstable.kdePackages.dolphin
+    unstable.kdePackages.kate
+    unstable.kdePackages.kwrited
+    # add more KDE apps from unstable as desired, e.g.:
+    #unstable.kdePackages.okular
+    #unstable.kdePackages.gwenview
+    #unstable.kdePackages.ark
+    #unstable.kdePackages.spectacle
+
     # dev pkgs
     autoconf
     automake
@@ -69,42 +79,4 @@
     stdenv.cc
     wget
   ];
-
-### this lives in host.nix
-#   fonts.packages = with pkgs; [
-#     nerd-fonts.agave
-#     nerd-fonts.fira-code
-#     nerd-fonts.hack
-#     nerd-fonts.iosevka
-#     nerd-fonts.jetbrains-mono
-#     nerd-fonts.meslo-lg
-#     nerd-fonts.victor-mono
-#     nerd-fonts.zed-mono
-#     cozette dina-font
-#     liberation_ttf
-#     noto-fonts
-#     noto-fonts-color-emoji
-#   ];
-
-#   fonts = {
-#     #enableDefaultPackages = false;
-#     packages = with pkgs; [
-#     nerd-fonts.agave
-#     nerd-fonts.fira-code
-#     nerd-fonts.hack
-#     nerd-fonts.iosevka
-#     nerd-fonts.jetbrains-mono
-#     nerd-fonts.meslo-lg
-#     nerd-fonts.victor-mono
-#     nerd-fonts.zed-mono
-#     cozette dina-font
-#     liberation_ttf
-#     noto-fonts
-#     noto-fonts-color-emoji
-#     ];
-#     fontconfig = {
-#     enable = true;
-#     useEmbeddedBitmaps = true;   # for Firefox emoji rendering
-#     };
-#   };
 }
