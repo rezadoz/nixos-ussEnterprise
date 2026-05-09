@@ -15,10 +15,11 @@
     qbittorrent
     qemu_full
     quickemu # qemu wrapper
-    retroarch-full
-    steam protonup-qt
+    #retroarch
+    #steam # redudant, using `programs.steam.enable = true;`
+    protonup-qt
     tlrc # tldr
-    virtualbox
+    #virtualbox
     wineWow64Packages.waylandFull
     winetricks
     yazi
