@@ -39,6 +39,7 @@
     rsclock
     nix-output-monitor
     nmap
+    pv
     qdirstat
     tree
     weather
