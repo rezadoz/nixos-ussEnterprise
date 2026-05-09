@@ -40,6 +40,7 @@
     nix-output-monitor
     nmap
     qdirstat
+    tree
     weather
     unzip
     yt-dlp
@@ -47,9 +48,9 @@
     zip
 
     unstable.kdePackages.konsole
-    unstable.kdePackages.dolphin
-    unstable.kdePackages.kate
-    unstable.kdePackages.kwrited
+    #unstable.kdePackages.dolphin
+    #unstable.kdePackages.kate
+    #unstable.kdePackages.kwrited
     # add more KDE apps from unstable as desired, e.g.:
     #unstable.kdePackages.okular
     #unstable.kdePackages.gwenview
