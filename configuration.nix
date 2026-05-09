@@ -104,6 +104,27 @@
   };
 
   programs.firefox.enable = true;
+  programs.neovim = {
+    enable = true;
+    viAlias = false;
+    vimAlias = false;
+    /*configure = {
+      customRC = ''
+        set runtimepath^=${pkgs.vimPlugins.jellybeans-vim}
+        colorscheme jellybeans
+        set number
+        set cc=80
+        set list
+        set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+        if &diff
+          colorscheme blue
+        endif
+      '';
+      packages.myVimPackage = with pkgs.vimPlugins; {
+        start = [ ctrlp ];
+      };
+    };*/
+  };
   programs.steam.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
