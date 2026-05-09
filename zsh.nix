@@ -41,7 +41,7 @@
       ngc    = "sudo nix-collect-garbage -d";
       nlo    = "nix profile list";
       rebuild    = "sudo nixos-rebuild switch --flake ~/nix-config#enterprise";
-      updoot = "sh /etc/nixos/wrapper-updater.sh";
+      update = "sh /etc/nixos/update.sh";
 
       # --- Git ---
       #g      = "git";
@@ -86,9 +86,9 @@
       free   = "free -h";
       grep   = "grep --color=auto";
       p      = "python3";
-      vi     = "nvim";
-      vim    = "nvim";
-      v      = "nvim";
+      #vi     = "nvim";
+      #vim    = "nvim";
+      #v      = "nvim";
       y      = "yazi";
       yz     = "yazi";
       zshrc  = "$EDITOR ~/.config/zsh/.zshrc";
