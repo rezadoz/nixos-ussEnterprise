@@ -164,7 +164,7 @@
       cozette
       dina-font
       liberation_ttf
-      noto-fonts
+      #noto-fonts   # I don't like their braille glyphs
       noto-fonts-color-emoji
     ];
     fontconfig = {
@@ -218,3 +218,4 @@
     "net.ipv6.conf.all.forwarding" = 1;
   };
 }
+

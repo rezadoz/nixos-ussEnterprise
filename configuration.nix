@@ -51,7 +51,18 @@
     variant = "";
   };
 
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.brlaser pkgs.brgenml1lpr pkgs.brgenml1cupswrapper ];
+    # ^ only needed as a fallback; try driverless first and you can drop these later
+  };
+
+  # mDNS / Bonjour so the printer is discoverable on the LAN
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   # sound
   services.pulseaudio.enable = false;

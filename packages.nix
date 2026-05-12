@@ -48,6 +48,7 @@
     wavemon
     zip
 
+    kdePackages.partitionmanager
     unstable.kdePackages.konsole
     #unstable.kdePackages.dolphin
     #unstable.kdePackages.kate
