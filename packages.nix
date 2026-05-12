@@ -32,6 +32,7 @@
     bat
     fastfetch
     file
+    gnupg
     hunspellDicts.en-us-large
     imagemagick
     lsd

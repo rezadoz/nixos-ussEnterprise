@@ -1,4 +1,7 @@
-# WIP
+## changelog
+* **v.0.1.3**: +CUPS printing service, +`gnupg`
+* **v.0.1.2**: +`host.nix` module
+* **v.0.1.1**: implemented flake
 ```
 /etc/nixos
 .
@@ -21,7 +24,7 @@
 * [x] ~~setup flake~~
 * [ ] modularize *further*
     * [x] ~~host.nix~~
-    * [ ] home.nix      # user level
+    * [ ] home.nix      # finish and import
     * [ ] network.nix
     * [ ] services.nix
 
