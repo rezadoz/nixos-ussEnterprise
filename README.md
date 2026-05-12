@@ -14,9 +14,19 @@
 ├── README.md
 ├── update.sh       # system update script, alias=update
 └── zsh.nix         # zsh home-manager options
-
-1 directory, 9 files
-
+```
+```
+operator@uss-enterprise
+-----------------------
+OS: NixOS 25.11 (Xantusia) x86_64
+Kernel: Linux (*latest*)
+Packages: 2151 (nix-system), 401 (nix-user)
+DE: KDE Plasma
+WM: KWin (Wayland)
+CPU: AMD Ryzen 5 7600X3D (12) @ 4.73 GHz
+GPU: GTX 1070 [Discrete]
+Memory: 31.06 GiB
+Swap: 31.53 GiB
 ```
 
 ## TODO
