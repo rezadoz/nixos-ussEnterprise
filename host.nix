@@ -175,14 +175,6 @@
 
   ############################################################
   # Networking
-  #
-  # NOTE: 10.0.10.0 is the *network address* of a /24 subnet,
-  # not a valid host address. Using 10.0.10.10 instead — change
-  # to whatever free host address you actually want.
-  #
-  # NetworkManager is enabled in configuration.nix; it will
-  # honor the static address declared here on the named iface.
-  # Replace `enp4s0` with your real interface (run `ip a`).
   ############################################################
   networking = {
     hostName = "uss-enterprise";
