@@ -23,7 +23,7 @@
   home-manager.users.operator = { pkgs, ... }: {
   #home.packages = [ pkgs.atool pkgs.httpie ];
   #programs.zsh.enable = true;
-    imports = [ ./zsh.nix ];
+    imports = [ ./zsh.nix ./home.nix ];
     home.stateVersion = "25.11"; # DO NOT EDIT
   };
 

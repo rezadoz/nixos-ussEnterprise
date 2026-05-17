@@ -10,25 +10,17 @@
       #<home-manager/nixos> # home-manager is now provided by the flake, no longer a channel import
       ./hardware-configuration.nix
       ./host.nix
+      ./networking.nix
+#       ./home.nix
       ./packages.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  /* this now lives in host.nix
-  networking.hostName = "uss-enterprise";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  networking.networkmanager.enable = true;*/
 
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -44,8 +36,6 @@
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -56,7 +46,6 @@
     drivers = [ pkgs.brlaser pkgs.brgenml1lpr pkgs.brgenml1cupswrapper ];
     # ^ only needed as a fallback; try driverless first and you can drop these later
   };
-
   # mDNS / Bonjour so the printer is discoverable on the LAN
   services.avahi = {
     enable = true;
@@ -92,12 +81,13 @@
     ];
   };
 
-  home-manager.users.operator = { pkgs, ... }: {
-  #home.packages = [ pkgs.atool pkgs.httpie ];
-  #programs.zsh.enable = true;
-    imports = [ ./zsh.nix ];
-    home.stateVersion = "25.11"; # DO NOT EDIT
-  };
+
+#   home-manager.users.operator = { pkgs, ... }: {
+#   #home.packages = [ pkgs.atool pkgs.httpie ];
+#   #programs.zsh.enable = true;
+#     imports = [ ./zsh.nix ];
+#     home.stateVersion = "25.11"; # DO NOT EDIT
+#   };
 
   programs.firefox.enable = true;
   programs.neovim = {
