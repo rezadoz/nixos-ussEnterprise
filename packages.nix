@@ -31,10 +31,12 @@
     _7zz-rar unrar
     bat
     fastfetch
+    figlet
     file
     gnupg
     hunspellDicts.en-us-large
     imagemagick
+    lolcat
     lsd
     ripgrep
     rsclock
