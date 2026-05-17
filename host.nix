@@ -192,7 +192,7 @@
 
     # Static IP. Replace interface name with your NIC.
     interfaces.wlp9s0.ipv4.addresses = [{
-      address = "10.10.10.10";
+      address = "10.0.0.203";
       prefixLength = 24;
     }];
 
