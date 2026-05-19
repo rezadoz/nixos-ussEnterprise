@@ -6,4 +6,4 @@ lsd --tree /etc/nixos
 printf "${ansi_yellow}(1/2) updating flake...${reset}\n"
 sudo nix flake update --flake /etc/nixos
 printf "${ansi_yellow}(2/2) nixos-rebuild switch...${reset}\n"
-sudo nixos-rebuild switch --flake /etc/nixos#uss-enterprise |& nom
+sudo nixos-rebuild switch --upgrade --flake /etc/nixos#uss-enterprise |& nom
