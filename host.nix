@@ -84,7 +84,7 @@
 
     # Pin to the production driver. Change to `beta`,
     # `stable`, or a specific version if needed.
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
 
   ############################################################

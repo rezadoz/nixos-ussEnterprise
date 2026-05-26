@@ -17,7 +17,8 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;  # for beta NVIDIA driver
+#   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -111,7 +112,12 @@
       };
     };*/
   };
-  programs.steam.enable = true;
+
+   programs.steam = {
+     enable = true;
+     gamescopeSession.enable = true;
+     extraCompatPackages = [ pkgs.proton-ge-bin ];
+   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;

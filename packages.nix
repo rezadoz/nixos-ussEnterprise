@@ -44,6 +44,7 @@
     nmap
     pv
     qdirstat
+    termdown
     tree
     weather
     unzip
