@@ -77,12 +77,12 @@
   };
 
 
-   home-manager.users.operator = { pkgs, ... }: {
-   #home.packages = [ pkgs.atool pkgs.httpie ];
-   #programs.zsh.enable = true;
-     imports = [ ./zsh.nix ];
-     home.stateVersion = "25.11"; # DO NOT EDIT
-   };
+  home-manager.users.operator = { pkgs, ... }: {
+  #home.packages = [ pkgs.atool pkgs.httpie ];
+  #programs.zsh.enable = true;
+    imports = [ ./zsh.nix ];
+    home.stateVersion = "25.11"; # DO NOT EDIT
+  };
 
   programs.firefox.enable = true;
   programs.neovim = {
@@ -107,11 +107,13 @@
     };*/
   };
 
-   programs.steam = {
-     enable = true;
-     gamescopeSession.enable = true;
-     extraCompatPackages = [ pkgs.proton-ge-bin ];
-   };
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
+  };
+
+  programs.kdeconnect.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
