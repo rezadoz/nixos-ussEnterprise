@@ -82,9 +82,9 @@
     # nvidia-settings GUI in the system menu
     nvidiaSettings = true;
 
-    # Pin to the production driver. Change to `beta`,
-    # `stable`, or a specific version if needed.
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    # Pascal (GTX 1070) was dropped by the 590 driver series, so pin to the
+    # 580 LTSB branch — the last one that still drives this card.
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
 
   ############################################################

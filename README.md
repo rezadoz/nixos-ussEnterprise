@@ -8,10 +8,11 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 ```
 
 ## changelog
+* **v.0.2.0**: NixOS `25.11` -> `26.11`, also nixpkg `stable` -> `unstable`
 * **v.0.1.4**: +`home.nix`, +`networking.nix`
 * **v.0.1.3**: +CUPS printing service, +`gnupg`
 * **v.0.1.2**: +`host.nix` module
-* **v.0.1.1*: +flake
+* **v.0.1.1**: +flake
 
 ## structure
 ```
