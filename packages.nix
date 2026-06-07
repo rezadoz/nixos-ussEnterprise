@@ -53,15 +53,6 @@
     zip
 
     kdePackages.partitionmanager
-    unstable.kdePackages.konsole
-    #unstable.kdePackages.dolphin
-    #unstable.kdePackages.kate
-    #unstable.kdePackages.kwrited
-    # add more KDE apps from unstable as desired, e.g.:
-    #unstable.kdePackages.okular
-    #unstable.kdePackages.gwenview
-    #unstable.kdePackages.ark
-    #unstable.kdePackages.spectacle
 
     # dev pkgs
     autoconf

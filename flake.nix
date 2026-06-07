@@ -2,20 +2,22 @@
   description = "uss-enterprise NixOS configuration";
 
   inputs = {
-    # Stable channel — matches your system.stateVersion of 25.11
-    nixpkgs.url        = "github:NixOS/nixpkgs/nixos-25.11";
+    # Primary channel — now tracking the rolling unstable branch.
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Unstable channel — exposed to the system via an overlay as `pkgs.unstable.*`
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # Latest stable (26.05 "Yarara") kept available via an overlay as `pkgs.stable.*`.
+    # Use this prefix when you want a package pinned to stable instead of unstable.
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
 
-    # home-manager release that tracks 25.11
+    # home-manager that tracks nixpkgs *unstable* — this is the `master` branch.
+    # (The `release-XX.YY` branches are for the matching *stable* nixpkgs.)
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
     in {
@@ -23,11 +25,11 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
-          # Overlay that adds `pkgs.unstable` everywhere in the system
+          # Overlay that adds `pkgs.stable` (26.05) everywhere in the system
           ({ config, ... }: {
             nixpkgs.overlays = [
               (final: prev: {
-                unstable = import nixpkgs-unstable {
+                stable = import nixpkgs-stable {
                   inherit system;
                   config.allowUnfree = true;
                 };
