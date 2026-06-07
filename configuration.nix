@@ -1,13 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
     [
-      #<home-manager/nixos> # home-manager is now provided by the flake, no longer a channel import
       ./hardware-configuration.nix
       ./host.nix
       ./networking.nix
@@ -17,8 +12,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_12;  # for beta NVIDIA driver
-#   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -83,12 +77,12 @@
   };
 
 
-#   home-manager.users.operator = { pkgs, ... }: {
-#   #home.packages = [ pkgs.atool pkgs.httpie ];
-#   #programs.zsh.enable = true;
-#     imports = [ ./zsh.nix ];
-#     home.stateVersion = "25.11"; # DO NOT EDIT
-#   };
+   home-manager.users.operator = { pkgs, ... }: {
+   #home.packages = [ pkgs.atool pkgs.httpie ];
+   #programs.zsh.enable = true;
+     imports = [ ./zsh.nix ];
+     home.stateVersion = "25.11"; # DO NOT EDIT
+   };
 
   programs.firefox.enable = true;
   programs.neovim = {

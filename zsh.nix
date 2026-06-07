@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    PAGER = "less";
+    MANPAGER = "nvim +Man!";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
