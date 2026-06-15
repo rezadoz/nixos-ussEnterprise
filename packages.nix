@@ -15,7 +15,8 @@
     qbittorrent
     qemu_full
     quickemu # qemu wrapper
-    retroarch
+#     retroarch-full
+    pcsx2
     #steam # redudant, using `programs.steam.enable = true;`
     protonup-qt
     tlrc # tldr
