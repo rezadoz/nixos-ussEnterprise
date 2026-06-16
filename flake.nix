@@ -3,7 +3,8 @@
 
   inputs = {
     # Primary channel — now tracking the rolling unstable branch.
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+#     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # Latest stable (26.05 "Yarara") kept available via an overlay as `pkgs.stable.*`.
     # Use this prefix when you want a package pinned to stable instead of unstable.
