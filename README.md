@@ -35,14 +35,14 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 ```
 operator@uss-enterprise
 -----------------------
-OS: NixOS 25.11 (Xantusia) x86_64
-Kernel: Linux (latest)
+OS: 26.11 (Zokor) x86_64
+Kernel: Linux 6.6.142
 DE: KDE Plasma
 WM: KWin (Wayland)
 CPU: AMD Ryzen 5 7600X3D (12) @ 4.73 GHz
 GPU: GTX 1070 [Discrete]
 Memory: 32 GiB
-Swap: 32 GiB
+Swap: *50% zram
 ```
 
 ## TODO
