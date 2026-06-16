@@ -15,7 +15,14 @@ if [[ -f "$LOG_FILE" ]]; then
     hours=$(( (diff % 86400) / 3600 ))
     minutes=$(( (diff % 3600) / 60 ))
 
-    printf "${ansi_cyan}last update ${days}d ${hours}h ${minutes}m ago...${reset}\n"
+    time_str=""
+    [[ $days -gt 0 ]] && time_str+="${days}d "
+    [[ $hours -gt 0 ]] && time_str+="${hours}h "
+    [[ $minutes -gt 0 ]] && time_str+="${minutes}m"
+    [[ -z "$time_str" ]] && time_str="just now"
+    time_str="${time_str%" "}"  # trim trailing space if minutes was 0
+
+    printf "${ansi_cyan}last update ${time_str} ago...${reset}\n"
 else
     printf "${ansi_cyan}no update log found — creating one after this run...${reset}\n"
 fi
