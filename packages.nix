@@ -10,6 +10,7 @@
     ffmpeg
     geeqie
     gimp gimpPlugins.gmic
+    imgbrd-grabber
     libreoffice-qt6
     mpv
     qbittorrent
@@ -56,6 +57,8 @@
     kdePackages.partitionmanager
 
     # dev pkgs
+    android-tools
+    androidsdk
     autoconf
     automake
     binutils

@@ -27,16 +27,17 @@
         specialArgs = { inherit inputs; };
         modules = [
           # Overlay that adds `pkgs.stable` (26.05) everywhere in the system
-          ({ config, ... }: {
-            nixpkgs.overlays = [
-              (final: prev: {
-                stable = import nixpkgs-stable {
-                  inherit system;
-                  config.allowUnfree = true;
-                };
+              ({ config, ... }: {
+                nixpkgs.overlays = [
+                  (final: prev: {
+                    stable = import nixpkgs-stable {
+                      inherit system;
+                      config.allowUnfree = true;
+                    };
+                  })
+                ];
+                nixpkgs.config.android_sdk.accept_license = true;
               })
-            ];
-          })
 
           ./configuration.nix
           home-manager.nixosModules.home-manager
