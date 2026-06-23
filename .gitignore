@@ -7,5 +7,5 @@ result-*
 *~
 .vscode/
 .idea/
-flake.lock
+*.lock
 hardware-configuration.nix
