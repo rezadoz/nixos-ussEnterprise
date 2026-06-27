@@ -7,5 +7,4 @@ result-*
 *~
 .vscode/
 .idea/
-*.lock
 hardware-configuration.nix
