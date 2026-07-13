@@ -14,8 +14,8 @@
     libreoffice-qt6
     mpv
     qbittorrent
-    qemu_full
-    quickemu # qemu wrapper
+#     qemu_full
+#     quickemu # qemu wrapper
     retroarch-full
     pcsx2
     #steam # redudant, using `programs.steam.enable = true;`
