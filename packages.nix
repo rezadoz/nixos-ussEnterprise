@@ -16,7 +16,7 @@
     qbittorrent
     qemu_full
     quickemu # qemu wrapper
-#     retroarch-full
+    retroarch-full
     pcsx2
     #steam # redudant, using `programs.steam.enable = true;`
     protonup-qt
@@ -57,8 +57,8 @@
     kdePackages.partitionmanager
 
     # dev pkgs
-    android-tools
-    androidsdk
+#     android-tools
+#     androidsdk
     autoconf
     automake
     binutils
