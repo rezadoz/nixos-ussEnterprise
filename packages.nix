@@ -36,6 +36,7 @@
     fastfetch
     figlet
     file
+    fzf
     gnupg
     hunspellDicts.en-us-large
     imagemagick
