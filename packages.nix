@@ -20,6 +20,7 @@
     pcsx2
     #steam # redudant, using `programs.steam.enable = true;`
     protonup-qt
+    tor-browser
     tlrc # tldr
     #virtualbox
     wineWow64Packages.waylandFull
