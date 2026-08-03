@@ -1,12 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    PAGER = "less";
-    MANPAGER = "nvim +Man!";
-  };
+  # (home.sessionVariables live in home.nix)
 
   programs.zsh = {
     enable = true;
@@ -47,7 +42,7 @@
       nsu    = "nix search nixpkgs-unstable";
       ngc    = "sudo nix-collect-garbage -d";
       nlo    = "nix profile list";
-      rebuild    = "sudo nixos-rebuild switch --flake ~/nix-config#enterprise";
+      rebuild    = "sudo nixos-rebuild switch --flake /etc/nixos#uss-enterprise";
       update = "sh /etc/nixos/update.sh";
 
       # --- Git ---

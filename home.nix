@@ -1,31 +1,27 @@
 { config, pkgs, ... }:
 
+# Home-manager module for the `operator` user.
+# Wired up in configuration.nix via `home-manager.users.operator = import ./home.nix;`
+
 {
-#   imports = [
-#     #
-#   ];
+  imports = [
+    ./zsh.nix
+  ];
 
   home.username = "operator";
   home.homeDirectory = "/home/operator";
-  home.stateVersion = "25.11";
+  home.stateVersion = "25.11"; # DO NOT EDIT
 
   home.sessionVariables = {
-    EDITOR  = "nvim";
-    VISUAL  = "nvim";
-    PAGER   = "less";
+    EDITOR   = "nvim";
+    VISUAL   = "nvim";
+    PAGER    = "less";
     MANPAGER = "nvim +Man!";
   };
 
   home.packages = with pkgs; [
     #
   ];
-
-  home-manager.users.operator = { pkgs, ... }: {
-  #home.packages = [ pkgs.atool pkgs.httpie ];
-  #programs.zsh.enable = true;
-    imports = [ ./zsh.nix ./home.nix ];
-    home.stateVersion = "25.11"; # DO NOT EDIT
-  };
 
   programs.git = {
     enable = true;
@@ -45,9 +41,10 @@
     defaultEditor = true;
     viAlias  = false;
     vimAlias = false;
-    withRuby   = false;
+    withRuby    = false;
     withPython3 = false;
   };
 
+  # Let home-manager manage itself (useful for `home-manager` CLI)
   #programs.home-manager.enable = true;
 }

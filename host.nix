@@ -50,14 +50,12 @@
       };
     };
   };
-  services.blueman.enable = true;
+  # (blueman applet is enabled in services.nix)
 
   ############################################################
   # NVIDIA (proprietary)
   ############################################################
-  # Required for the proprietary driver
-  nixpkgs.config.allowUnfree = true;
-
+  # (allowUnfree for the proprietary driver is set in configuration.nix)
   # Make sure the kernel uses the nvidia DRM modeset path
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -85,66 +83,6 @@
     # Pascal (GTX 1070) was dropped by the 590 driver series, so pin to the
     # 580 LTSB branch — the last one that still drives this card.
     package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
-  };
-
-  ############################################################
-  # Services: Jellyfin
-  ############################################################
-  services.jellyfin = {
-    enable = true;
-    openFirewall = true;      # opens 8096 (http) and 8920 (https)
-    user = "jellyfin";
-    group = "jellyfin";
-    # dataDir, cacheDir, configDir default under /var/lib/jellyfin
-  };
-
-  # Hardware-accelerated transcoding via NVENC/NVDEC
-  environment.systemPackages = with pkgs; [
-    jellyfin
-    jellyfin-web
-    jellyfin-ffmpeg
-  ];
-
-  ############################################################
-  # Services: nginx
-  # Reasonable hardened defaults. Add virtualHosts as needed.
-  ############################################################
-  services.nginx = {
-    enable = true;
-    recommendedGzipSettings  = true;
-    recommendedOptimisation  = true;
-    recommendedProxySettings = true;
-    recommendedTlsSettings   = true;
-    virtualHosts."localhost" = {
-    root = "/var/www";
-    locations."/" = {
-    tryFiles = "$uri $uri/ /index.html";
-      };
-     };
-    # Example reverse-proxy in front of Jellyfin. Uncomment
-    # and edit the serverName when you're ready.
-    #
-    # virtualHosts."jellyfin.local" = {
-    #   locations."/" = {
-    #     proxyPass = "http://127.0.0.1:8096";
-    #     proxyWebsockets = true;
-    #   };
-    # };
-  };
-
-  ############################################################
-  # Services: OpenSSH
-  ############################################################
-  services.openssh = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      PasswordAuthentication = true;   # set false once you've added keys
-      PermitRootLogin = "no";
-      KbdInteractiveAuthentication = false;
-      X11Forwarding = false;
-    };
-    ports = [ 22 ];
   };
 
   ############################################################

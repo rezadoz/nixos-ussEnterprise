@@ -6,8 +6,8 @@
       ./hardware-configuration.nix
       ./host.nix
       ./networking.nix
-#       ./home.nix
       ./packages.nix
+      ./services.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -29,6 +29,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # Desktop (display stack stays here; daemons live in services.nix)
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -36,36 +37,6 @@
     layout = "us";
     variant = "";
   };
-
-  services.printing = {
-    enable = true;
-    drivers = [ pkgs.brlaser pkgs.brgenml1lpr pkgs.brgenml1cupswrapper ];
-    # ^ only needed as a fallback; try driverless first and you can drop these later
-  };
-  # mDNS / Bonjour so the printer is discoverable on the LAN
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
-
-  # sound
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   users.users.operator = {
     isNormalUser = true;
@@ -77,36 +48,10 @@
     ];
   };
 
-
-  home-manager.users.operator = { pkgs, ... }: {
-  #home.packages = [ pkgs.atool pkgs.httpie ];
-  #programs.zsh.enable = true;
-    imports = [ ./zsh.nix ];
-    home.stateVersion = "25.11"; # DO NOT EDIT
-  };
+  # home-manager: user config lives in home.nix (which imports zsh.nix)
+  home-manager.users.operator = import ./home.nix;
 
   programs.firefox.enable = true;
-  programs.neovim = {
-    enable = true;
-    viAlias = false;
-    vimAlias = false;
-    /*configure = {
-      customRC = ''
-        set runtimepath^=${pkgs.vimPlugins.jellybeans-vim}
-        colorscheme jellybeans
-        set number
-        set cc=80
-        set list
-        set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
-        if &diff
-          colorscheme blue
-        endif
-      '';
-      packages.myVimPackage = with pkgs.vimPlugins; {
-        start = [ ctrlp ];
-      };
-    };*/
-  };
 
   programs.nix-ld.enable = true;
   programs.steam = {

@@ -44,6 +44,8 @@
           {
             home-manager.useGlobalPkgs   = true;
             home-manager.useUserPackages = true;
+            # If HM would clobber an existing dotfile, back it up instead of erroring
+            home-manager.backupFileExtension = "hm-bak";
             # Pass `inputs` down to home-manager modules if you ever need it there
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
