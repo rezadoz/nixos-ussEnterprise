@@ -49,7 +49,7 @@ if [[ -n "$version" ]]; then
     cd /etc/nixos || exit 1
     sudo git add .
     sudo git commit -m "$version"
-    sudo git push -u origin master
+    sudo -E git push -u origin master
 else
     printf "${ansi_yellow}warning: could not parse version number, skipping git commit${reset}\n"
 fi
