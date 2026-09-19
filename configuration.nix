@@ -51,7 +51,27 @@
   # home-manager: user config lives in home.nix (which imports zsh.nix)
   home-manager.users.operator = import ./home.nix;
 
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    preferences = { # hardware decoding
+      "media.ffmpeg.vaapi.enabled" = true;
+      "media.hardware-video-decoding.force-enabled" = true;
+      "media.av1.enabled" = false;   # Pascal has no AV1 decode
+    };
+  };
+
+  hardware.graphics = {
+  enable = true;
+  extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+};
+
+  hardware.nvidia.modesetting.enable = true;  # the "direct" backend needs nvidia-drm modeset
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    NVD_BACKEND = "direct";
+    MOZ_DISABLE_RDD_SANDBOX = "1";
+  }; # /hardware decoding
 
   programs.nix-ld.enable = true;
   programs.steam = {
