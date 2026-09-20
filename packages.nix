@@ -5,7 +5,7 @@
     # applications
     btop-cuda
     catnip
-    discord
+#     discord
     feh
     fish
     ffmpeg
