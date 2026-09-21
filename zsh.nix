@@ -37,7 +37,7 @@
       #nrt    = "sudo nixos-rebuild test --flake /etc/nixos#enterprise";
       #nrb    = "sudo nixos-rebuild boot --flake /etc/nixos#enterprise";
       cfg    = "$EDITOR /etc/nixos/";
-      jogger = "cd /etc/nixos/jogger && go run .";  # alias browser + launcher `/home/operator/.config/jogger.toml`
+#       jogger = "go run /etc/nixos/jogger";  # alias browser + launcher `/home/operator/.config/jogger.toml
       ns     = "nix search nixpkgs";
       nsp    = "nix-shell -p";
       nsu    = "nix search nixpkgs-unstable";

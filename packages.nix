@@ -84,5 +84,8 @@
     rustup
     stdenv.cc
     wget
+
+    # my own packages
+    (callPackage ./jogger.nix { })
   ];
 }
