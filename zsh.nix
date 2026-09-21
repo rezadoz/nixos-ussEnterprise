@@ -37,6 +37,7 @@
       #nrt    = "sudo nixos-rebuild test --flake /etc/nixos#enterprise";
       #nrb    = "sudo nixos-rebuild boot --flake /etc/nixos#enterprise";
       cfg    = "$EDITOR /etc/nixos/";
+      jogger = "go run ~/code/workspace/jogger";  # TODO: put this somewhere else
       ns     = "nix search nixpkgs";
       nsp    = "nix-shell -p";
       nsu    = "nix search nixpkgs-unstable";

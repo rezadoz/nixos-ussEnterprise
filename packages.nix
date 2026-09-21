@@ -72,6 +72,7 @@
     gdb
     git
     gnumake
+    go
     libtool
     llvm
     meson
