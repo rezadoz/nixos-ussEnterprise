@@ -29,7 +29,9 @@
     ];
 
     shellAliases = {
+      update = "sh /etc/nixos/update.sh"; # git tracked system update script
       catnips    = "catnip -d alsa_output.pci-0000_0c_00.6.analog-stereo";
+      rsclok     = "rsclock -S -c"; # digital clock
       siren      = "mpv --loop ~/media/warsiren.mp3";
 
       # --- Nix ---
@@ -44,7 +46,6 @@
       ngc    = "sudo nix-collect-garbage -d";
       nlo    = "nix profile list";
       rebuild    = "sudo nixos-rebuild switch --flake /etc/nixos#uss-enterprise";
-      update = "sh /etc/nixos/update.sh";
 
       # --- Git ---
       #g      = "git";
