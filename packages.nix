@@ -28,7 +28,7 @@
     winetricks
     yazi
     zathura
-    #zapzap # whatapp
+    zapzap # whatapp
     zsh zsh-powerlevel10k
 
     # utilities
