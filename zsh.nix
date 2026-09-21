@@ -33,6 +33,8 @@
       catnips    = "catnip -d alsa_output.pci-0000_0c_00.6.analog-stereo";
       rsclok     = "rsclock -S -c"; # digital clock
       siren      = "mpv --loop ~/media/warsiren.mp3";
+      weather    = "weather --forecast --no-cache 32958 | head -7"; # local weather
+      forecast   = "weather --forecast --no-cache 32958"; # local forecast
 
       # --- Nix ---
       #nrs    = "sudo nixos-rebuild switch --upgrade --flake /etc/nixos#enterprise";
