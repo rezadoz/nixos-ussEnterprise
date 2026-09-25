@@ -29,10 +29,11 @@
     ];
 
     shellAliases = {
-      update = "sh /etc/nixos/update.sh"; # git tracked system update script
+      update = "sh /etc/nixos/update.sh";                 # git tracked system update script
       catnips    = "catnip -d alsa_output.pci-0000_0c_00.6.analog-stereo";
-      rsclok     = "rsclock -S -c"; # digital clock
-      siren      = "mpv --loop ~/media/warsiren.mp3";
+      rsclok     = "rsclock -S -c";                       # digital clock
+      rain       = "mpv --loop ~/media/rainstorm8h.m4a";  # rain audio for sleep
+      siren      = "mpv --loop ~/media/warsiren.mp3";     # audio for alarm
       weather    = "weather --forecast --no-cache 32958 | head -7"; # local weather
       forecast   = "weather --forecast --no-cache 32958"; # local forecast
 
