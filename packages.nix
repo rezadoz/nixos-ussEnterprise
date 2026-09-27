@@ -71,6 +71,7 @@
     gcc
     gdb
     git
+    gh
     gnumake
     go
     libtool

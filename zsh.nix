@@ -29,8 +29,9 @@
     ];
 
     shellAliases = {
-      update = "sh /etc/nixos/update.sh";                 # git tracked system update script
-      catnips    = "catnip -d alsa_output.pci-0000_0c_00.6.analog-stereo";
+      update     = "sh /etc/nixos/update.sh";             # git tracked system update script
+      goongit    = "~/code/workspace/goongit/goongit";    # git wizard
+      catnips    = "catnip -d alsa_output.pci-0000_0c_00.6.analog-stereo";  # visualizer for analog stereo
       rsclok     = "rsclock -S -c";                       # digital clock
       rain       = "mpv --loop ~/media/rainstorm8h.m4a";  # rain audio for sleep
       siren      = "mpv --loop ~/media/warsiren.mp3";     # audio for alarm
