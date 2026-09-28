@@ -60,7 +60,7 @@
     kdePackages.partitionmanager
 
     # dev pkgs
-#     android-tools
+    android-tools
 #     androidsdk
     autoconf
     automake
