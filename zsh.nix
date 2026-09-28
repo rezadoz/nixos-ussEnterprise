@@ -50,6 +50,7 @@
       ngc    = "sudo nix-collect-garbage -d";
       nlo    = "nix profile list";
       rebuild    = "sudo nixos-rebuild switch --flake /etc/nixos#uss-enterprise";
+      restartplasma = "kwin_wayland --replace &";	# restart plasma shell
 
       # --- Git ---
       #g      = "git";
