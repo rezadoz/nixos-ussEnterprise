@@ -22,16 +22,25 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 /etc/nixos
 .
 ├── configuration.nix   # top level config
-├── flake.loc
+├── flake.lock
 ├── flake.nix
-├── hardware-configuration.nix  # auto-gen
-├── home.nix
-├── host.nix
-├── packages.nix
+├── hardware-configuration.nix
+├── home.nix            # user level config
+├── host.nix            # host level config
+├── jogger              # my alias browser
+│   ├── go.mod
+│   ├── go.sum
+│   ├── jogger
+│   └── main.go
+├── jogger.nix
 ├── networking.nix
+├── packages.nix
 ├── README.md
-├── update.sh           # alias=update
+├── services.nix
+├── update.sh       # alias = update
 └── zsh.nix
+
+2 directories, 17 files
 ```
 
 ## specs
