@@ -14,6 +14,7 @@
     imgbrd-grabber
     libreoffice-qt6
     mpv
+    obs-studio
     qbittorrent
 #     qemu_full
 #     quickemu # qemu wrapper
