@@ -21,8 +21,8 @@
 
     firewall = {
       enable = true;
-      # Jellyfin (8096/8920) and SSH (22) are opened by their
-      # respective services in host.nix via openFirewall.
+      # Jellyfin (8096/8920) is opened via openFirewall and SSH (22)
+      # is opened to private ranges only — both in services.nix.
       allowedTCPPorts = [ 80 443 ]; # nginx
       allowedUDPPorts = [ ];
     };

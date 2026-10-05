@@ -1,7 +1,17 @@
 { config, pkgs, ... }:
 
+let
+  # LAN host finder — see lanfind.sh. Exported to zsh via lanssh.zsh.
+  lanfind = pkgs.writeShellApplication {
+    name = "lanfind";
+    runtimeInputs = with pkgs; [ avahi nmap iproute2 gawk coreutils ];
+    text = builtins.readFile ./lanfind.sh;
+  };
+in
 {
   # (home.sessionVariables live in home.nix)
+
+  home.packages = [ lanfind ];
 
   programs.zsh = {
     enable = true;
@@ -52,6 +62,10 @@
       nlo    = "nix profile list";
       rebuild    = "sudo nixos-rebuild switch --flake /etc/nixos#uss-enterprise";
       restartplasma = "kwin_wayland --replace &";	# restart plasma shell
+
+      # --- LAN ---
+      # Finds ideapad, exports $IDEAPAD_IP, connects. `lanscan` to refresh by hand.
+      ssh-ideapad = "_lan_ensure ideapad && ssh -o HostKeyAlias=ideapad nasrin@$IDEAPAD_IP";
 
       # --- Git ---
       #g      = "git";
@@ -113,6 +127,9 @@
 
       # Source p10k config if it exists (run `p10k configure` to generate it)
       [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+      # lanscan / _lan_ensure — used by the ssh-ideapad alias
+      source ${./lanssh.zsh}
     '';
   };
 }
