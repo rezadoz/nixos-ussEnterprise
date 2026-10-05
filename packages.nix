@@ -6,6 +6,7 @@
     btop-cuda
     catnip
 #     discord
+    discordo
     feh
     fish
     ffmpeg
