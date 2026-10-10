@@ -64,8 +64,9 @@ in
       restartplasma = "kwin_wayland --replace &";	# restart plasma shell
 
       # --- LAN ---
-      # Finds ideapad, exports $IDEAPAD_IP, connects. `lanscan` to refresh by hand.
-      ssh-ideapad = "_lan_ensure ideapad && ssh -o HostKeyAlias=ideapad nasrin@$IDEAPAD_IP";
+      # Finds the host, exports $<HOST>_IP, connects. `lanscan` to refresh by hand.
+      ssh-ideapad  = "_lan_ensure ideapad && ssh -o HostKeyAlias=ideapad nasrin@$IDEAPAD_IP";
+      ssh-runabout = "_lan_ensure runabout && ssh -o HostKeyAlias=runabout bryan@$RUNABOUT_IP";
 
       # --- Git ---
       #g      = "git";
@@ -128,8 +129,20 @@ in
       # Source p10k config if it exists (run `p10k configure` to generate it)
       [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-      # lanscan / _lan_ensure — used by the ssh-ideapad alias
+      # lanscan / _lan_ensure — used by the ssh-ideapad / ssh-runabout aliases
       source ${./lanssh.zsh}
+
+      # jogger: enter drops the picked command into the next prompt (via
+      # print -z) so it can be run or edited; ctrl+e still edits and runs it.
+      jogger() {
+        local out rc
+        out=$(mktemp -t jogger.XXXXXX) || return
+        command jogger -out "$out" "$@"
+        rc=$?
+        [[ -s $out ]] && print -z -- "$(<$out)"
+        rm -f -- "$out"
+        return $rc
+      }
     '';
   };
 }

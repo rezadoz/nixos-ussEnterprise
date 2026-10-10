@@ -1,15 +1,15 @@
 # lanssh.zsh — sourced by zsh.nix; backs the ssh-* aliases.
 #
 #   lanscan [HOST...]   find hosts with `lanfind` and export <HOST>_IP for each
-#                       (no args = both boxes). uss-enterprise -> USS_ENTERPRISE_IP,
-#                       ideapad -> IDEAPAD_IP
+#                       (no args = all known boxes). uss-enterprise -> USS_ENTERPRISE_IP,
+#                       ideapad -> IDEAPAD_IP, runabout -> RUNABOUT_IP
 #   _lan_ensure HOST    keep the exported IP if it still answers on :22,
 #                       otherwise rescan. Used by the aliases.
 
 _lan_var() { print -r -- "${${1:u}//-/_}_IP" }
 
 lanscan() {
-  (( $# )) || set -- uss-enterprise ideapad
+  (( $# )) || set -- uss-enterprise ideapad runabout
   local out line host ip rc
   out=$(lanfind "$@"); rc=$?
   for line in ${(f)out}; do

@@ -83,7 +83,7 @@ if [[ -n $(missing) ]]; then
     echo "lanfind: name lookup failed, sweeping ${nets[*]} ..." >&2
 
     # Unprivileged nmap can't ARP/ICMP, so probe TCP 22 (sshd, open to the
-    # LAN on both boxes) plus 80/443. Router reverse-DNS names come along.
+    # LAN on every box) plus 80/443. Router reverse-DNS names come along.
     unnamed=()
     while read -r ip name; do
       if [[ -n $name ]]; then

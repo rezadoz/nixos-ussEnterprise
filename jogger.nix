@@ -2,7 +2,7 @@
 
 buildGoModule {
   pname = "jogger";
-  version = "0.1.0";
+  version = "0.2.0";
   src = ./jogger;
   vendorHash = "sha256-By+dEBQld/S9XXdrKqZJbN5XQwB/yoo/byjBZcbcMRY=";
 }
