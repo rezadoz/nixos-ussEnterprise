@@ -11,10 +11,16 @@
 //
 //	-nix    path to the Nix file   (default /etc/nixos/zsh.nix)
 //	-config path to jogger's file  (default ~/.config/jogger.toml)
+//	-out    file to write the picked command to (default: print it on stdout)
 //
-// Keys: type to search • ↑/↓ PgUp/PgDn move • enter run • ctrl+e edit command
-// first (e.g. to add arguments) • tab show/hide commented-out aliases •
-// esc clear search / quit • ctrl+c quit.
+// Keys: type to search • ↑/↓ PgUp/PgDn move • enter paste into the shell •
+// ctrl+e edit command first (e.g. to add arguments), then run • tab show/hide
+// commented-out aliases • esc clear search / quit • ctrl+c quit.
+//
+// Pasting: a program can't type into its parent shell's prompt, so on enter
+// jogger writes the command to -out and exits. The `jogger` zsh function in
+// zsh.nix passes a temp file as -out and loads its contents into the next
+// prompt with `print -z`, ready to run (enter) or edit.
 package main
 
 import (
@@ -113,6 +119,9 @@ var defaultDescriptions = map[string]string{
 	"yz":       "Open the yazi terminal file manager",
 	"zshrc":    "Edit your zsh config",
 	"vimrc":    "Edit your Neovim config",
+
+	"ssh-ideapad":  "Find ideapad on the LAN and SSH in as nasrin",
+	"ssh-runabout": "Find runabout on the LAN and SSH in as bryan",
 }
 
 // ---------------------------------------------------------------------------
@@ -464,7 +473,8 @@ type model struct {
 	status    string
 	statusErr bool
 
-	run string // command to execute after the TUI exits
+	run   string // command to execute after the TUI exits (ctrl+e flow)
+	paste string // command to hand back to the shell's prompt (enter)
 }
 
 func newModel(all []entry, cfgPath, status string, statusErr bool) model {
@@ -662,7 +672,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, tea.Quit
 		case "enter":
 			if e, ok := m.selected(); ok {
-				m.run = e.Command
+				m.paste = e.Command
 				return m, tea.Quit
 			}
 			return m, nil
@@ -765,7 +775,7 @@ func (m model) View() string {
 	if m.showDisabled {
 		toggle = "hide disabled"
 	}
-	help := fmt.Sprintf("enter run • ctrl+e edit first • ↑/↓ pgup/pgdn • tab %s • esc clear/quit", toggle)
+	help := fmt.Sprintf("enter paste • ctrl+e edit & run • ↑/↓ pgup/pgdn • tab %s • esc clear/quit", toggle)
 
 	if m.mode == modeEdit {
 		input = m.edit.View()
@@ -785,6 +795,21 @@ func (m model) View() string {
 // ---------------------------------------------------------------------------
 // main
 // ---------------------------------------------------------------------------
+
+// pasteCommand hands cmdline back to the calling shell. With -out it's written
+// to that file (the zsh wrapper then pushes it onto the prompt with print -z);
+// otherwise it's printed on stdout so it can be captured or copied.
+func pasteCommand(cmdline, outPath string) {
+	if outPath == "" {
+		fmt.Println(cmdline)
+		return
+	}
+	if err := os.WriteFile(outPath, []byte(cmdline), 0o600); err != nil {
+		fmt.Fprintln(os.Stderr, "jogger: couldn't write", outPath+":", err)
+		fmt.Println(cmdline)
+		os.Exit(1)
+	}
+}
 
 // runCommand replaces the jogger process with `$SHELL -c <cmdline>` so the
 // command gets the terminal, signals, and exit code exactly as if typed.
@@ -807,6 +832,7 @@ func runCommand(cmdline string) {
 func main() {
 	nixPath := flag.String("nix", "/etc/nixos/zsh.nix", "Nix file containing the shellAliases block")
 	cfgPath := flag.String("config", defaultConfigPath(), "jogger's alias/description file")
+	outPath := flag.String("out", "", "write the command picked with enter to this file instead of stdout")
 	flag.Parse()
 
 	all, status, isErr := load(*nixPath, *cfgPath)
@@ -816,7 +842,14 @@ func main() {
 		fmt.Fprintln(os.Stderr, "jogger:", err)
 		os.Exit(1)
 	}
-	if fm, ok := final.(model); ok && fm.run != "" {
+	fm, ok := final.(model)
+	if !ok {
+		return
+	}
+	switch {
+	case fm.paste != "":
+		pasteCommand(fm.paste, *outPath)
+	case fm.run != "":
 		runCommand(fm.run)
 	}
 }

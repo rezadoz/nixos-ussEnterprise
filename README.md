@@ -8,6 +8,7 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 ```
 
 ## changelog
+* **26.11.20261008.e7439b6**: jogger `enter` now pastes the command into the prompt (run or edit it) instead of running it, +`ssh-runabout`
 * **26.11.20260919.20b1ddd**: +jogger
 * **26.11.20260919.20b1ddd**: +firefox hw decoding, improved update script, fixed git pushes (lawl)
 * **26.11.20260623.89570f2**: Now using NixOS system versioning, added git commits to `update.sh`
