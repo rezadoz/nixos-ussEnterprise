@@ -47,8 +47,8 @@
     lsd
     ripgrep
     rsclock
-    mullvad
-    mullvad-vpn
+#     mullvad   # enabled in services
+#     mullvad-vpn
     nix-output-monitor
     nmap
     pv

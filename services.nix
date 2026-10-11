@@ -60,6 +60,16 @@ in
   };
 
   ############################################################
+  # mullvad
+  ############################################################
+  services.mullvad-vpn = {
+    enable = true;
+    gui.enable = true;
+  };
+  # Recommended by the NixOS wiki for DNS to work properly with the VPN
+  services.resolved.enable = true;
+
+  ############################################################
   # nginx
   # Reasonable hardened defaults. Add virtualHosts as needed.
   ############################################################
