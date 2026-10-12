@@ -5,6 +5,7 @@
     # applications
     btop-cuda
     catnip
+    cool-retro-term
 #     discord
     discordo
     feh
