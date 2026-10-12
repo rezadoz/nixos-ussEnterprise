@@ -36,6 +36,7 @@
     # utilities
     _7zz-rar unrar
     bat
+    bk  # epub reader
     fastfetch
     figlet
     file
