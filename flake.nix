@@ -16,6 +16,13 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # PhotoCraft source, pinned to an exact rev so `nix flake update` (update.sh)
+    # can't move it out from under photocraft-export-presets.patch.
+    photocraft = {
+      url = "github:storytold/photocraft/5f65579ecb44047c2a619036c18ff273202e1389";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:

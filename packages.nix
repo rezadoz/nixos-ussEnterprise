@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -94,5 +94,6 @@
 
     # my own packages
     (callPackage ./jogger.nix { })
+    (callPackage ./photocraft.nix { src = inputs.photocraft; })
   ];
 }
