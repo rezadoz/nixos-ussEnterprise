@@ -8,6 +8,7 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 ```
 
 ## changelog
+* **26.11.20261017.09063bd**: +prosody XMPP server for the LAN (`xmpp.nix`), +`kaidan`, +`profanity`
 * **26.11.20261008.e7439b6**: jogger `enter` now pastes the command into the prompt (run or edit it) instead of running it, +`ssh-runabout`
 * **26.11.20260919.20b1ddd**: +jogger
 * **26.11.20260919.20b1ddd**: +firefox hw decoding, improved update script, fixed git pushes (lawl)
@@ -39,9 +40,10 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 ├── README.md
 ├── services.nix
 ├── update.sh       # alias = update
+├── xmpp.nix        # prosody, LAN only
 └── zsh.nix
 
-2 directories, 17 files
+2 directories, 18 files
 ```
 
 ## specs

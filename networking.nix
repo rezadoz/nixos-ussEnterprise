@@ -23,6 +23,7 @@
       enable = true;
       # Jellyfin (8096/8920) is opened via openFirewall and SSH (22)
       # is opened to private ranges only — both in services.nix.
+      # XMPP (5222/5281) is opened to private ranges only in xmpp.nix.
       allowedTCPPorts = [ 80 443 ]; # nginx
       allowedUDPPorts = [ ];
     };

@@ -8,6 +8,7 @@
       ./networking.nix
       ./packages.nix
       ./services.nix
+      ./xmpp.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

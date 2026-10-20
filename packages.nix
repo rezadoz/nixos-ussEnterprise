@@ -14,6 +14,7 @@
     geeqie
     gimp gimpPlugins.gmic
     imgbrd-grabber
+    kaidan    # xmpp (gui)
     libreoffice-qt6
     mpv
     obs-studio
@@ -22,6 +23,7 @@
 #     quickemu # qemu wrapper
 #     retroarch-full
     pcsx2
+    profanity # xmpp (tui)
     #steam # redudant, using `programs.steam.enable = true;`
     protonup-qt
     tor-browser
