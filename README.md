@@ -23,6 +23,8 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 ```
 /etc/nixos
 .
+├── certs
+│   └── xmpp-lan-ca.crt # LAN CA for prosody
 ├── configuration.nix   # top level config
 ├── flake.lock
 ├── flake.nix
@@ -35,15 +37,19 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 │   ├── jogger
 │   └── main.go
 ├── jogger.nix
+├── lanfind.sh          # find LAN hosts by hostname
+├── lanssh.zsh          # backs the ssh-* aliases
 ├── networking.nix
 ├── packages.nix
+├── photocraft-export-presets.patch
+├── photocraft.nix      # photocraft package
 ├── README.md
 ├── services.nix
-├── update.sh       # alias = update
-├── xmpp.nix        # prosody, LAN only
+├── update.sh           # alias = update
+├── xmpp.nix            # prosody, LAN only
 └── zsh.nix
 
-2 directories, 18 files
+3 directories, 23 files
 ```
 
 ## specs

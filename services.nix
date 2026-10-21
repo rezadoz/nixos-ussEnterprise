@@ -22,9 +22,9 @@ in
     openFirewall = true;
     # Announce this box as uss-enterprise.local so `lanfind` (zsh.nix)
     # and `ssh uss-enterprise.local` can find it.
-    publish = {
-      enable = true;
-      addresses = true;
+    settings.publish = {
+      disable-publishing = false;
+      publish-addresses = true;
     };
   };
 

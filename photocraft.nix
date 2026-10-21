@@ -8,7 +8,11 @@
 , libxkbcommon
 , vulkan-loader
 , libGL
-, xorg
+, libx11
+, libxcursor
+, libxrandr
+, libxi
+, libxcb
 , src
 }:
 
@@ -19,11 +23,11 @@ let
     libxkbcommon
     vulkan-loader
     libGL
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXrandr
-    xorg.libXi
-    xorg.libxcb
+    libx11
+    libxcursor
+    libxrandr
+    libxi
+    libxcb
   ];
 in
 rustPlatform.buildRustPackage {
