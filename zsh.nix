@@ -40,6 +40,7 @@ in
 
     shellAliases = {
       update     = "sh /etc/nixos/update.sh";             # git tracked system update script
+      backupnix  = "~/code/scripts/backupNix.sh";	  # backup NixOS codebase to tarball
       goongit    = "~/code/workspace/goongit/goongit";    # git wizard
       catnips    = "catnip -d alsa_output.pci-0000_0c_00.6.analog-stereo";  # visualizer for analog stereo
       rsclok     = "rsclock -S -c";                       # digital clock

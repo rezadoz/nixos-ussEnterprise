@@ -24,6 +24,7 @@
 #     retroarch-full
     pcsx2
     profanity # xmpp (tui)
+    psi-plus # xmpp (gui)
     #steam # redudant, using `programs.steam.enable = true;`
     protonup-qt
     tor-browser
