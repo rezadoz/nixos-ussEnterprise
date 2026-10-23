@@ -29,7 +29,6 @@
     protonup-qt
     tor-browser
     tlrc # tldr
-    #virtualbox
     wineWow64Packages.waylandFull
     winetricks
     yazi
@@ -50,6 +49,7 @@
     imagemagick
     lolcat
     lsd
+    pik # interactive process killer
     ripgrep
     rsclock
 #     mullvad   # enabled in services
