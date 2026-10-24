@@ -115,6 +115,12 @@ in
     };
   };
 
+  services.tor = {
+    enable = true;
+    client.enable = true;    # SOCKS proxy on 127.0.0.1:9050
+    torsocks.enable = true;  # installs `torsocks` + /etc/tor/torsocks.conf
+  };
+
   # -I (insert) rather than -A so the accepts land ahead of the
   # chain's final refuse rule. nixos-fw is flushed on every reload,
   # so these never pile up.
