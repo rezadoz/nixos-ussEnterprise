@@ -12,6 +12,7 @@
     fish
     ffmpeg
     geeqie
+    ghostty
     gimp gimpPlugins.gmic
     imgbrd-grabber
     kaidan    # xmpp (gui)
