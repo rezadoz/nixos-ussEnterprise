@@ -8,6 +8,7 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 ```
 
 ## changelog
+* **26.11.20261103.1d06008**: +`nvim.nix` (neovim moved out of `home.nix`): absolute line numbers on by default, monokai theme, plus some sane defaults
 * **26.11.20261017.09063bd**: +prosody XMPP server for the LAN (`xmpp.nix`), +`kaidan`, +`profanity`, +`psi-plus`
 * **26.11.20261008.e7439b6**: jogger `enter` now pastes the command into the prompt (run or edit it) instead of running it, +`ssh-runabout`
 * **26.11.20260919.20b1ddd**: +jogger
@@ -40,6 +41,7 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 ├── lanfind.sh          # find LAN hosts by hostname
 ├── lanssh.zsh          # backs the ssh-* aliases
 ├── networking.nix
+├── nvim.nix            # neovim (home-manager)
 ├── packages.nix
 ├── photocraft-export-presets.patch
 ├── photocraft.nix      # photocraft package
@@ -49,7 +51,7 @@ _  / / /_  ___/_  ___/_  __/  __  __ \  __/  _ \_  ___/_  /__  ___/  _ \
 ├── xmpp.nix            # prosody, LAN only
 └── zsh.nix
 
-3 directories, 23 files
+3 directories, 24 files
 ```
 
 ## specs

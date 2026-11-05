@@ -5,6 +5,7 @@
 
 {
   imports = [
+    ./nvim.nix
     ./zsh.nix
   ];
 
@@ -36,14 +37,7 @@
     };
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias  = false;
-    vimAlias = false;
-    withRuby    = false;
-    withPython3 = false;
-  };
+  # neovim lives in nvim.nix
 
   # Let home-manager manage itself (useful for `home-manager` CLI)
   #programs.home-manager.enable = true;
