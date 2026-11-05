@@ -20,9 +20,9 @@
     mpv
     obs-studio
     qbittorrent
-#     qemu_full
-#     quickemu # qemu wrapper
-#     retroarch-full
+    qemu
+    quickemu # qemu wrapper
+    retroarch
     pcsx2
     profanity # xmpp (tui)
     psi-plus # xmpp (gui)
