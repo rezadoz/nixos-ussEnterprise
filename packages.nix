@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # applications
+    #--- applications
     btop-cuda
     catnip
     cool-retro-term
@@ -37,7 +37,13 @@
     zapzap # whatapp
     zsh zsh-powerlevel10k
 
-    # utilities
+    #--- finance
+    gnucash
+    hledger
+    hledger-ui
+    hledger-web
+
+    #--- utilities
     _7zz-rar unrar
     bat
     bk  # epub reader
@@ -69,7 +75,7 @@
 
     kdePackages.partitionmanager
 
-    # dev pkgs
+    #--- dev pkgs
     android-tools
 #     androidsdk
     autoconf
@@ -96,7 +102,7 @@
     stdenv.cc
     wget
 
-    # my own packages
+    #--- my own packages
     (callPackage ./jogger.nix { })
     (callPackage ./photocraft.nix { src = inputs.photocraft; })
   ];
