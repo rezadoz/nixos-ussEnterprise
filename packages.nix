@@ -15,7 +15,8 @@
     ghostty
     gimp gimpPlugins.gmic
     imgbrd-grabber
-    kaidan    # xmpp (gui)
+#     kaidan    # xmpp (gui)
+    krita
     libreoffice-qt6
     mpv
     obs-studio
