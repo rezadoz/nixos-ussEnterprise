@@ -14,7 +14,8 @@
     geeqie
     ghostty
     gimp gimpPlugins.gmic
-    godot_4_3
+#     godot_4_3
+    godot_4_3-mono
     imgbrd-grabber
 #     kaidan    # xmpp (gui)
     krita
