@@ -87,6 +87,7 @@
     clang
     cmake
     curl
+    dotnet-sdk_8
     gcc
     gdb
     git
