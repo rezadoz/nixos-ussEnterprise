@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     #--- applications
+    blender
     btop-cuda
     catnip
     cool-retro-term
