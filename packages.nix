@@ -51,6 +51,7 @@
     _7zz-rar unrar
     bat
     bk  # epub reader
+    dust  # disk usage
     fastfetch
     figlet
     file
